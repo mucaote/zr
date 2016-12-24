@@ -1,0 +1,328 @@
+/*把公共LESS中的内容导入进来使用,但是在最后编译成为CSS的时候,我们不编译PUBLIC中的LESS文件=>只引入不编译reference*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #F4F4F4;
+}
+/*--HEADER--*/
+.header {
+  height: 63px;
+  background: #FFF;
+  border-bottom: 1px solid #d5d5d5;
+  /*
+  LESS中提供的处理颜色的方法
+    darken:在原来颜色值的基础上加深
+    lighten:在原来颜色值的基础上变浅
+    unit([value],[px|rem]):给一个值加单位或者是去除单位
+  */
+}
+.header .content {
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 1020px;
+  /*LOGO*/
+  /*NAV*/
+  /*LOGON*/
+}
+.header .content .logo {
+  float: left;
+  width: 160px;
+}
+.header .content .logo a {
+  display: block;
+  height: 63px;
+  background: url("../img/kbs-logo.png") no-repeat center center;
+  font-size: 0;
+}
+.header .content .nav {
+  float: left;
+  margin-left: 50px;
+}
+.header .content .nav li {
+  float: left;
+}
+.header .content .nav li a {
+  display: block;
+  width: 90px;
+  height: 59px;
+  line-height: 59px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  font-weight: bold;
+  border-top: 4px solid transparent;
+}
+.header .content .nav li a:hover {
+  border-top-color: #346AFF;
+}
+.header .content .nav li a.bg {
+  color: #FFF;
+  background: #346AFF;
+}
+.header .content .nav li a.liveQQ {
+  width: 63px;
+  height: 63px;
+  border: none;
+}
+.header .content .nav li a.liveQQ img {
+  width: 100%;
+  height: 100%;
+}
+.header .content .nav li a.down {
+  position: relative;
+}
+.header .content .nav li a.down .weChat {
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  position: absolute;
+  top: 59px;
+  left: -15px;
+  z-index: 100;
+  padding: 0 15px;
+  /*=>15px 15px*/
+  width: 90px;
+  height: 0;
+  /*=>130px*/
+  overflow: hidden;
+}
+.header .content .nav li a.down .weChat img {
+  display: block;
+  width: 90px;
+  height: 90px;
+}
+.header .content .nav li a.down .weChat span {
+  display: block;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+}
+.header .content .nav li a.down .weChatBg {
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  position: absolute;
+  top: 59px;
+  left: -15px;
+  z-index: 100;
+  padding: 0 15px;
+  /*=>15px 15px*/
+  width: 90px;
+  height: 0;
+  /*=>130px*/
+  overflow: hidden;
+  /*把之前的样式(包含子元素的样式)继承过来使用*/
+  z-index: 99;
+  background: #FFF;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.header .content .nav li a.down .weChatBg img {
+  display: block;
+  width: 90px;
+  height: 90px;
+}
+.header .content .nav li a.down .weChatBg span {
+  display: block;
+  line-height: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+}
+.header .content .nav li a.down:hover .weChat,
+.header .content .nav li a.down:hover .weChatBg {
+  padding: 15px;
+  height: 130px;
+}
+.header .content .login {
+  float: right;
+  margin-top: 17.5px;
+  width: 46px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: #FFF;
+  font-size: 12px;
+  background: #346AFF;
+  border-radius: 3px;
+}
+.header .content .login:hover {
+  background: #003de6;
+}
+.main {
+  margin: 20px auto;
+  width: 1040px;
+  overflow: hidden;
+}
+/*--MENU--*/
+.menu {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 198px;
+  background: #FFF;
+  border: 1px solid #EEE;
+}
+.menu a {
+  position: relative;
+  display: block;
+  padding-left: 24px;
+  height: 50px;
+  line-height: 50px;
+  color: #555;
+  font-size: 16px;
+  border-left: 5px solid transparent;
+}
+.menu a i {
+  display: none;
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  margin-top: -6px;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: 6px solid transparent;
+  border-left-color: #346AFF;
+}
+.menu a i:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -8px;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: 6px solid transparent;
+  border-left-color: #EFF3FF;
+}
+.menu a:hover,
+.menu a.bg {
+  color: #346AFF;
+  background: #EFF3FF;
+  border-left-color: #346AFF;
+}
+.menu a.bg i {
+  display: block;
+}
+.mainRight {
+  width: 820px;
+  float: right;
+}
+.calendar {
+  position: relative;
+  height: 80px;
+  background: #FFF;
+  border: 1px solid #EEE;
+  /*按钮*/
+}
+.calendar .btn {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 80px;
+}
+.calendar .btn .arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -9px;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: 9px solid transparent;
+}
+.calendar .btn .arrow:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -9px;
+  margin-left: -9px;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  border: 9px solid transparent;
+}
+.calendar .btn.btnLeft {
+  left: 0;
+}
+.calendar .btn.btnLeft .arrow {
+  margin-left: -13.5px;
+  border-right-color: #999;
+}
+.calendar .btn.btnLeft .arrow:after {
+  margin-left: -7px;
+  border-right-color: #FFF;
+}
+.calendar .btn.btnRight {
+  right: 0;
+}
+.calendar .btn.btnRight .arrow {
+  margin-left: -4.5px;
+  border-left-color: #999;
+}
+.calendar .btn.btnRight .arrow:after {
+  margin-left: -11px;
+  border-left-color: #FFF;
+}
+.calendar .btn:hover.btnLeft .arrow {
+  border-right-color: #346AFF;
+}
+.calendar .btn:hover.btnRight .arrow {
+  border-left-color: #346AFF;
+}
+.calendar .container {
+  position: relative;
+  margin: 0 24px ;
+  height: 80px;
+  overflow: hidden;
+}
+.calendar .container .wrapper {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 10000px;
+  height: 70px;
+}
+.calendar .container .wrapper li {
+  float: left;
+}
+.calendar .container .wrapper li a {
+  display: block;
+  width: 110px;
+  height: 70px;
+}
+.calendar .container .wrapper li a span {
+  display: block;
+  line-height: 27px;
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+}
+.calendar .container .wrapper li a span.week {
+  margin-top: 9px;
+  color: #a2a2a2;
+}
+.calendar .container .wrapper li a:hover,
+.calendar .container .wrapper li a.bg {
+  background: #EFF3FF;
+}
+.calendar .container .wrapper li a:hover span,
+.calendar .container .wrapper li a.bg span {
+  color: #346AFF;
+}
+.calendar .container .wrapper li a:hover span.week,
+.calendar .container .wrapper li a.bg span.week {
+  color: #346AFF;
+}

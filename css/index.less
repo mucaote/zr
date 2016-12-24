@@ -1,0 +1,322 @@
+/*把公共LESS中的内容导入进来使用,但是在最后编译成为CSS的时候,我们不编译PUBLIC中的LESS文件=>只引入不编译reference*/
+@import (reference) "public";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #F4F4F4;
+}
+
+/*--HEADER--*/
+.header {
+  @H: 63px;
+  height: @H;
+  background: @color-white;
+  border-bottom: 1px solid darken(@color-border, 10%);
+  /*
+  LESS中提供的处理颜色的方法
+    darken:在原来颜色值的基础上加深
+    lighten:在原来颜色值的基础上变浅
+    unit([value],[px|rem]):给一个值加单位或者是去除单位
+  */
+  .content {
+    margin: 0 auto;
+    padding: 0 10px;
+    width: unit((@con-width)-20, px);
+
+    /*LOGO*/
+    .logo {
+      float: left;
+      width: 160px;
+      a {
+        display: block;
+        height: @H;
+        background: url("../img/kbs-logo.png") no-repeat center center;
+        font-size: 0;
+      }
+    }
+
+    /*NAV*/
+    .nav {
+      float: left;
+      margin-left: 50px;
+      li {
+        float: left;
+        a {
+          display: block;
+          width: 90px;
+          height: unit(unit(@H,px)-4, px);
+          line-height: unit(unit(@H,px)-4, px);
+          text-align: center;
+          font-size: 16px;
+          color: @color-text;
+          font-weight: bold;
+          border-top: 4px solid transparent;
+
+          &:hover {
+            border-top-color: @color-blue;
+          }
+
+          &.bg {
+            color: @color-white;
+            background: @color-blue;
+          }
+
+          &.liveQQ {
+            width: @H;
+            height: @H;
+            border: none;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &.down {
+            position: relative;
+            .weChat {
+              .transitionFn(@duration: .3s);
+              position: absolute;
+              top: unit(unit(@H,px)-4, px);
+              left: -15px;
+              z-index: 100;
+              padding: 0 15px; /*=>15px 15px*/
+              width: 90px;
+              height: 0; /*=>130px*/
+              overflow: hidden;
+              img {
+                display: block;
+                width: 90px;
+                height: 90px;
+              }
+              span {
+                display: block;
+                line-height: 20px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: normal;
+              }
+            }
+            .weChatBg {
+              .weChat; /*把之前的样式(包含子元素的样式)继承过来使用*/
+              z-index: 99;
+              background: @color-white;
+              opacity: 0.7;
+              filter: alpha(opacity=70);
+            }
+
+            &:hover {
+              .weChat, .weChatBg {
+                padding: 15px;
+                height: 130px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /*LOGON*/
+    .login {
+      float: right;
+      margin-top: unit((unit(@H,px)-28)/2, px);
+      width: 46px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      color: @color-white;
+      font-size: 12px;
+      background: @color-blue;
+      border-radius: 3px;
+
+      &:hover {
+        background: darken(@color-blue, 15%);
+      }
+    }
+  }
+}
+
+.main {
+  margin: 20px auto;
+  width: unit(@con-width, px);
+  overflow: hidden;
+}
+
+/*--MENU--*/
+.menu {
+  float: left;
+  position:relative;
+  //height: 158px;
+  overflow: hidden;
+  width: 198px;
+  background: @color-white;
+  border: 1px solid @color-border;
+  a {
+    position: relative;
+    display: block;
+    padding-left: 24px;
+    height: 50px;
+    line-height: 50px;
+    color: @color-text;
+    font-size: 16px;
+    border-left: 5px solid transparent;
+
+    i {
+      display: none;
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      margin-top: -6px;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      border: 6px solid transparent;
+      border-left-color: @color-blue;
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: -8px;
+        width: 0;
+        height: 0;
+        font-size: 0;
+        border: 6px solid transparent;
+        border-left-color: @color-blue-light;
+      }
+    }
+
+    &:hover, &.bg {
+      color: @color-blue;
+      background: @color-blue-light;
+      border-left-color: @color-blue;
+    }
+
+    &.bg {
+      i {
+        display: block;
+      }
+    }
+  }
+}
+
+.mainRight{
+  width:820px;
+  float: right;
+}
+.calendar {
+  @H: 80;
+  position: relative;
+  height: unit(@H, px);
+  background: @color-white;
+  border: 1px solid @color-border;
+
+  /*按钮*/
+  .btn {
+    position: absolute;
+    top: 0;
+    width: 24px;
+    height: unit(@H, px);
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -9px;
+      margin-left: -9px;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      border: 9px solid transparent;
+    }
+    .arrow:after {
+      display: block;
+      content: '';
+      .arrow;
+    }
+
+    &.btnLeft {
+      left: 0;
+      .arrow {
+        margin-left: -13.5px;
+        border-right-color: #999;
+      }
+      .arrow:after {
+        margin-left: -7px;
+        border-right-color: @color-white;
+      }
+    }
+
+    &.btnRight {
+      right: 0;
+      .arrow {
+        margin-left: -4.5px;
+        border-left-color: #999;
+      }
+      .arrow:after {
+        margin-left: -11px;
+        border-left-color: @color-white;
+      }
+    }
+
+    &:hover {
+      &.btnLeft {
+        .arrow {
+          border-right-color: @color-blue;
+        }
+      }
+      &.btnRight {
+        .arrow {
+          border-left-color: @color-blue;
+        }
+      }
+    }
+  }
+  .container{
+    position: relative;
+    margin: 0 24px ;
+    height: unit(@H,px);
+    overflow: hidden;
+    .wrapper{
+      position: absolute;
+      left:0;
+      top:5px;
+      width:10000px;
+      height: 70px;
+      li{
+        float: left;
+        a{
+          display: block;
+          width:110px;
+          height: 70px;
+          span{
+            display: block;
+            line-height: 27px;
+            font-size: 16px;
+            color: @color-text;
+            text-align: center;
+            &.week{
+              margin-top:9px;
+              color: lighten(@color-text,30%);
+            }
+          }
+          &:hover, &.bg{
+            background: @color-blue-light;
+            span{
+              color: @color-blue;
+              &.week{
+                color: @color-blue;
+              }
+            }
+          }
+
+
+        }
+      }
+    }
+
+  }
+}
+

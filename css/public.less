@@ -1,0 +1,16 @@
+/*--公用的LESS部分--*/
+@color-white: #FFF;
+@color-border: #EEE;
+@color-text: #555;
+@color-blue: #346AFF;
+@color-blue-light: #EFF3FF;
+
+@con-width: 1040;
+
+.transitionFn(@property:all,@duration:1s,@time-function:linear,@delay:0s) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
